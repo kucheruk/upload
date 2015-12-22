@@ -55,6 +55,9 @@ export default function upload(option) {
     option.onSuccess(getBody(xhr));
   };
 
+  if (option.withCredentials !== undefined)
+    xhr.withCredentials = option.withCredentials;
+
   xhr.open('post', option.action, true);
   xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
   xhr.send(formData);
